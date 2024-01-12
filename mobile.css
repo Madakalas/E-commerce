@@ -1,0 +1,17 @@
+.image-container {
+    background-image:image-set(Top-10-E-commerce-App-Development-Companies);
+    position: relative;
+    align-items: center;
+     /* Text color on the image */
+}
+
+/* Style for the text overlay */
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional: Add a text shadow for better visibility */
+}

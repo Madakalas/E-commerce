@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        #slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        .slide {
+            display: none;
+            position: absolute;
+            width: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+            cursor: pointer;
+        }
+
+        .active {
+            background-color: #717171;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="slideshow-container">
+        <div class="slide">
+            <img src="./Iphone12.webp" alt="Image 1">
+        </div>
+        <div class="slide">
+            <img src="iphone 13.webp" alt="Image 2">
+        </div>
+        <div class="slide">
+            <img src="./iphone 14.webp" alt="Image 3">
+        </div>
+        <div class="slide">
+            <img src="./iphone 15.jpg" alt="Image 3">
+        </div>
+        <!-- Add more slides as needed -->
+
+        <div class="navigation">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <!-- Add more dots as needed -->
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        showSlide(slideIndex);
+
+        function currentSlide(n) {
+            showSlide(slideIndex = n);
+        }
+
+        function showSlide(n) {
+            const slides = document.getElementsByClassName('slide');
+            const dots = document.getElementsByClassName('dot');
+
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(' active', '');
+            }
+
+            slides[slideIndex - 1].style.display = 'block';
+            dots[slideIndex - 1].className += ' active';
+        }
+    </script>
+
+</body>
+</html>
